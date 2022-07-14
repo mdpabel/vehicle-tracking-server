@@ -14,9 +14,13 @@ const { port } = require('./config');
 const app = express();
 const server = http.Server(app);
 const io = socketIO(server, {
+  transports: ['websocket', 'polling'],
+  allowEIO3: true,
   cors: {
     origin: '*',
-    // methods: ['GET', 'POST'],
+    methods: ['GET', 'POST'],
+    transports: ['websocket', 'polling'],
+    credentials: true,
   },
 });
 
