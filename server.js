@@ -49,4 +49,4 @@ const PORT = port || 3003;
 server.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
 
 // db
-require('./src/db/mongodb');
+// require('./src/db/mongodb');
