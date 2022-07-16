@@ -5,7 +5,7 @@ function socketServer(io) {
     console.log('GPS device connected with server through socketio');
 
     socket.on('gpsdata', (data) => {
-      socket.broadcast.emit('gpsdataforclients', data[1]);
+      io.emit('gpsdataforclients', data[1]);
     });
 
     socket.on('client', (data) => {
