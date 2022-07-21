@@ -5,7 +5,7 @@ function socketServer(io) {
     let coordinates = [];
 
     socket.on('gpsdata', (data) => {
-      if (coordinates.length >= 20) {
+      if (coordinates.length >= 40) {
         const coordinate = geolib.getCenter(coordinates);
         console.log(coordinates, coordinate);
         coordinates = [];
