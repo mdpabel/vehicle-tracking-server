@@ -13,8 +13,8 @@ function socketServer(io) {
       } else {
         console.log(coordinates);
         coordinates.push({
-          latitude: data?.lattitude,
-          longitude: data?.longitude,
+          latitude: data[1]?.lattitude,
+          longitude: data[1]?.longitude,
         });
       }
     });
