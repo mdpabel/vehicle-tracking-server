@@ -5,10 +5,9 @@ function socketServer(io) {
     let coordinates = [];
 
     socket.on('gpsdata', (data) => {
-      if (coordinates.length >= 5) {
+      if (coordinates.length >= 10) {
         const coordinate = geolib.getCenter(coordinates);
-        const coordinate2 = geolib.getCenterOfBounds(coordinates);
-        console.log(coordinates, coordinate, coordinate2);
+        console.log(coordinates, coordinate);
         coordinates = [];
         io.emit('gpsdataforclients', coordinate);
       } else {
