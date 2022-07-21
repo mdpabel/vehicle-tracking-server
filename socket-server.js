@@ -1,12 +1,18 @@
+const geolib = require('geolib');
+
 function socketServer(io) {
   return io.on('connection', (socket) => {
-    io.emit('test', 'Device is connected with server through the socketio');
-
-    console.log('GPS device connected with server through socketio');
+    let coordinates = [];
 
     socket.on('gpsdata', (data) => {
-      console.log(data);
-      io.emit('gpsdataforclients', data[1]);
+      if (coordinates.length >= 10) {
+        const coordinate = geolib.getCenter(coordinates);
+        console.log(coordinates, coordinate);
+        coordinates = [];
+        io.emit('gpsdataforclients', coordinate);
+      } else {
+        coordinates.push(data);
+      }
     });
 
     socket.on('client', (data) => {
