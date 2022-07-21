@@ -11,7 +11,11 @@ function socketServer(io) {
         coordinates = [];
         io.emit('gpsdataforclients', coordinate);
       } else {
-        coordinates.push(data);
+        console.log(coordinates);
+        coordinates.push({
+          latitude: data?.lattitude,
+          longitude: data?.longitude,
+        });
       }
     });
 
