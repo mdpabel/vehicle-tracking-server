@@ -18,8 +18,8 @@ function socketServer(io) {
     socket.on('gpsdata', (data) => {
       if (coordinates.length >= 10) {
         const coordinate = calculateCenterOfCoordinates(coordinates);
-        coordinate['busId'] = coordinates[0].busId;
-        coordinate['numberOfSatellites'] = coordinates[0].numberOfGPS;
+        // coordinate['busId'] = coordinates[0].busId;
+        // coordinate['numberOfSatellites'] = coordinates[0].numberOfGPS;
 
         console.log(coordinates, coordinate);
         coordinates = [];
