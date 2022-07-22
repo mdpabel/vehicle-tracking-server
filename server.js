@@ -33,12 +33,29 @@ app.use(function (req, res, next) {
   next();
 });
 
+// const router = express.Router();
+// router.post('/gpsdata', (req, res) => {
+//   console.log(req.body);
+//   res.send('test');
+// });
+
+// router.get('/gpsdata', (req, res) => {
+//   console.log(req.body);
+//   res.send('test');
+// });
+
 // socket server
 socketServer(io);
 socketDebugger(io);
 
-app.use('/', (req, res) => {
-  res.send('Hello world!');
+app.post('/gpsdata', (req, res) => {
+  console.log(req.body);
+  res.send('test');
+});
+
+app.get('/gpsdata', (req, res) => {
+  console.log(req.body);
+  res.send('test');
 });
 
 // app.use('/api/v1/', busLocation);

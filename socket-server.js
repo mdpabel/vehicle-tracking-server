@@ -1,8 +1,8 @@
 function socketServer(io) {
   return io.on('connection', (socket) => {
-    io.emit('test', 'Device is connected with server through the socketio');
+    io.emit('test', 'Device is connected to server through the socketio');
 
-    console.log('GPS device connected with server through socketio');
+    console.log('GPS device connected to the server through socketio');
 
     socket.on('gpsdata', (data) => {
       console.log(data);
